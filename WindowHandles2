@@ -1,0 +1,156 @@
+package week4.day1;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class WindowAssignment {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		
+		WebDriverManager.chromedriver().setup();
+		
+		
+		ChromeDriver driver = new ChromeDriver();
+		
+		driver.get("http://www.leafground.com/pages/Window.html");
+		
+		
+		driver.findElement(By.xpath("//button[@onclick='openWin();']")).click();
+		
+		
+		Set<String> windowHandles1 = driver.getWindowHandles();
+		
+		List<String> L1 = new ArrayList<String>(windowHandles1);
+		
+		driver.switchTo().window(L1.get(1));
+		
+		driver.close();
+		
+		driver.switchTo().window(L1.get(0));
+		
+		driver.findElement(By.xpath("//button[@onclick='openWindows()']")).click();
+		
+Set<String> windowHandles2 = driver.getWindowHandles();
+		
+		List<String> L2 = new ArrayList<String>(windowHandles2);
+		
+		int size = L2.size();
+		
+		System.out.println("Total number of windows opened is  " +size);
+		
+		
+		Thread.sleep(3000);
+		
+		driver.switchTo().window(L2.get(2));
+		driver.close();
+		
+		driver.switchTo().window(L2.get(1));
+		
+		driver.close();
+		
+		driver.switchTo().window(L2.get(0));
+		
+		
+		//driver.findElement(By.xpath("//button[@onclick='openWindows();']")).click();
+		
+		//driver.findElement(By.id("color")).click();
+		
+		driver.findElement(By.xpath("//button[@id='color']")).click();
+		
+Set<String> windowHandles3 = driver.getWindowHandles();
+		
+		List<String> L3 = new ArrayList<String>(windowHandles3);
+		
+		// except 2nd window all windows should be closed 
+		
+		driver.switchTo().window(L3.get(1));
+		
+		driver.close();
+		
+driver.switchTo().window(L3.get(0));
+		
+		driver.close();
+		
+	
+driver.quit();
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package week4.day1;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Dummy {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		
+		
+		
+		
+		
+		
+WebDriverManager.chromedriver().setup();
+		
+		
+		ChromeDriver driver = new ChromeDriver();
+		
+		driver.get("http://www.leafground.com/pages/Window.html");
+		
+		driver.findElement(By.xpath("(//button[@id='color'])[2]")).click();
+		
+		Thread.sleep(5000);
+		
+		Set<String> windowHandles = driver.getWindowHandles();
+		
+		List<String> L1 = new ArrayList<String>(windowHandles);
+		
+		int size = L1.size();
+		
+		System.out.println("Total number of windows opened is " +size );
+		
+	}
+
+}
