@@ -1,0 +1,332 @@
+package week5.day1;
+
+import java.time.Duration;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class AlertAppear {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeDriver driver = new ChromeDriver();
+		
+		driver.get("http://www.leafground.com/pages/alertappear.html");
+		
+		driver.manage().window().maximize();
+		
+		
+		
+		
+		
+	//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+	
+	 WebElement e1 = driver.findElement(By.id("alert"));
+	 e1.click();
+	 
+	
+	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+	
+	wait.until(ExpectedConditions.alertIsPresent());
+	
+
+	Alert alert = driver.switchTo().alert();
+	
+	String text = alert.getText();
+	
+	System.out.println("Alert text is "+text);
+		
+	
+	if(text.contentEquals("Hurray, Click OK"))
+		
+	{
+		System.out.println("Alert text is verified");
+	}
+		
+	else
+	{
+		System.out.println("Alert text is wrong");
+		
+		
+	}
+	
+	alert.accept();
+	driver.close();
+	}
+		
+		
+		
+		
+		
+		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package week5.day1;
+
+import java.time.Duration;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Appear {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeDriver driver = new ChromeDriver();
+		
+		driver.get("http://www.leafground.com/pages/TextChange.html");
+		
+		driver.manage().window().maximize();
+		
+		
+		
+		
+		
+	//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+	
+	 WebElement e1 = driver.findElement(By.id("btn"));
+	
+	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+	
+	wait.until(ExpectedConditions.textToBePresentInElement(e1, "Click ME!"));
+	
+	e1.click();
+	Alert alert = driver.switchTo().alert();
+	
+	String text = alert.getText();
+	
+	System.out.println("Alert text is "+text);
+		
+	
+	if(text.contentEquals("Click ME!"))
+		
+	{
+		System.out.println("Alert text is verified");
+	}
+		
+	else
+	{
+		System.out.println("Alert text is wrong");
+		
+		
+	}
+	
+	alert.accept();
+	driver.close();
+	}
+		
+		
+		
+		
+		
+		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package week5.day1;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Disappear {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeDriver driver = new ChromeDriver();
+		
+		driver.get("http://www.leafground.com/pages/disapper.html");
+		
+		driver.manage().window().maximize();
+		
+		
+		
+		
+		
+	//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+	
+	WebElement e1 = driver.findElement(By.id("btn"));
+	
+	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+	
+	wait.until(ExpectedConditions.invisibilityOf(e1));
+	
+	String text = driver.findElement(By.xpath("//div[@id='show']/p/strong")).getText();
+	
+	System.out.println("Button is disappered text is "+text);
+		
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package week5.day1;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class TextChange {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeDriver driver = new ChromeDriver();
+		
+		driver.get("http://www.leafground.com/pages/appear.html");
+		
+		driver.manage().window().maximize();
+		
+		
+		
+		
+		
+	//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+	
+	WebElement e1 = driver.findElement(By.id("btn"));
+	
+	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+	
+	wait.until(ExpectedConditions.visibilityOf(e1));
+	
+	String text = e1.getText();
+	
+	System.out.println("Button appeared text is "+text);
+		
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}
